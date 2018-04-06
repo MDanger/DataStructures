@@ -122,4 +122,22 @@ public class ArrayStack<T> implements StackADT<T> {
 		return myTop;
 	}
 
+	/**
+	 * Returns string of elements in stack separated by comma, top element to left.
+	 *
+	 * @return string
+	 * @throws EmptyCollectionException("stack")
+	 */
+	@Override
+	public String toString(){
+		StringBuilder result = new StringBuilder();
+		int n = myTop;
+			while (n >= 0){
+				result.append(myStack[n]);
+				result.append(", ");
+				n--;
+			}
+		return result.toString();
+	}
+
 }
