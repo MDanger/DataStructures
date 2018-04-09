@@ -130,6 +130,9 @@ public class ArrayStack<T> implements StackADT<T> {
 	 */
 	@Override
 	public String toString(){
+		if (isEmpty()){
+			throw new EmptyCollectionException("stack");
+		}
 		StringBuilder result = new StringBuilder();
 		int n = myTop;
 			while (n >= 0){

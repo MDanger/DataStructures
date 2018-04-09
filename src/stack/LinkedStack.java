@@ -87,4 +87,21 @@ public class LinkedStack<T> implements StackADT<T> {
 		return myCount;
 	}
 
+	@Override
+	public String toString(){
+		if (isEmpty()) {
+			throw new EmptyCollectionException("stack");
+		}
+		StringBuilder result = new StringBuilder();
+		int n = myCount;
+		while (n >= 0){
+			result.append(myTop.getElement());
+			result.append(", ");
+			n--;
+			myTop = myTop.getNext();
+		}
+		return result.toString();
+
+	}
+
 }
