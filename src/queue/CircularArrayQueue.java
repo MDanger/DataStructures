@@ -26,14 +26,14 @@ public class CircularArrayQueue<T> implements QueueADT<T> {
 
     @Override
     public void enqueue(T element) {
-        if (isEmpty()){
-            myQueue[myFront] = element;
-        }
+//        if (isEmpty()){
+//            myQueue[myFront] = element;
+//        }
         if (size() == myQueue.length){
             expandCapacity();
         }
         myQueue[myRear] = element;
-        myRear = myRear++ % myQueue.length;
+        myRear = (myRear+1) % myQueue.length;
         myCount++;
 
     }
@@ -46,7 +46,7 @@ public class CircularArrayQueue<T> implements QueueADT<T> {
         T[] larger = (T[]) (new Object[myQueue.length *2]);
         for (int i = 0; i < myCount; i++){
             larger[i] = myQueue[myFront];
-            myFront =  myFront++ % myQueue.length;
+            myFront =  (myFront+1) % myQueue.length;
         }
         myFront =0;
         myRear = myCount;
@@ -59,7 +59,7 @@ public class CircularArrayQueue<T> implements QueueADT<T> {
         }
         T result = myQueue[myFront];
         myQueue[myFront] = null;
-        myFront = myFront++ % myQueue.length;
+        myFront = (myFront+1) % myQueue.length;
         myCount--;
 
         return result;
@@ -94,12 +94,13 @@ public class CircularArrayQueue<T> implements QueueADT<T> {
         StringBuilder result = new StringBuilder();
         int n = myCount;
         int i = myFront;
-        while (n >= 0){
+        while (n > 1){
             result.append(myQueue[i]);
             result.append(", ");
             i++;
             n--;
         }
+        result.append(myQueue[i]);
         return result.toString();
     }
 }

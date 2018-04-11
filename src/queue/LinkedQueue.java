@@ -1,7 +1,7 @@
 package queue;
 
 import exceptions.EmptyCollectionException;
-import stack.LinearNode;
+import node.LinearNode;
 
 public class LinkedQueue<T> implements QueueADT<T> {
 
@@ -21,12 +21,16 @@ public class LinkedQueue<T> implements QueueADT<T> {
      */
     @Override
     public void enqueue(T element) {
-        if (count==0){
-            head.setElement(element);
+        LinearNode<T> newNode = new LinearNode<T>(element);
+        if (isEmpty()){
+            head = newNode;
+
+        }else {
+            tail.setNext(newNode);
         }
-        tail.setNext(new LinearNode<T>(element));
-        tail = tail.getNext();
+        tail = newNode;
         count++;
+//        System.out.println("enqueue: head.get" +head.getElement());
     }
 
     @Override
@@ -71,12 +75,14 @@ public class LinkedQueue<T> implements QueueADT<T> {
     public String toString(){
      StringBuilder result = new StringBuilder();
      int n = count;
-     while (n>=0){
-         result.append(head.getElement());
+     LinearNode<T> runner = head;
+     while (n > 1 ){
+         result.append(runner.getElement());
          result.append(", ");
          n--;
-         head=head.getNext();
+         runner = runner.getNext();
      }
+     result.append(runner.getElement());
 
      return result.toString();
     }

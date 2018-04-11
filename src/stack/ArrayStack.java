@@ -115,10 +115,7 @@ public class ArrayStack<T> implements StackADT<T> {
 	 */
 	@Override
 	public int size() {
-		if (isEmpty()){
-			throw new EmptyCollectionException("stack");
-		}
-		
+
 		return myTop;
 	}
 
@@ -134,12 +131,13 @@ public class ArrayStack<T> implements StackADT<T> {
 			throw new EmptyCollectionException("stack");
 		}
 		StringBuilder result = new StringBuilder();
-		int n = myTop;
-			while (n >= 0){
+		int n = myTop-1;
+			while (n > 0){
 				result.append(myStack[n]);
 				result.append(", ");
 				n--;
 			}
+		result.append(myStack[n]);
 		return result.toString();
 	}
 

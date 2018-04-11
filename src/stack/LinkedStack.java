@@ -1,6 +1,7 @@
 package stack;
 
 import exceptions.EmptyCollectionException;
+import node.LinearNode;
 
 public class LinkedStack<T> implements StackADT<T> {
 	
@@ -79,11 +80,7 @@ public class LinkedStack<T> implements StackADT<T> {
 	 * @throws EmptyCollectionException
 	 */
 	@Override
-	public int size() throws EmptyCollectionException {
-		if (isEmpty()) {
-			throw new EmptyCollectionException("stack");
-		}
-		
+	public int size(){
 		return myCount;
 	}
 
@@ -93,13 +90,16 @@ public class LinkedStack<T> implements StackADT<T> {
 			throw new EmptyCollectionException("stack");
 		}
 		StringBuilder result = new StringBuilder();
+		LinearNode<T> runner = myTop;
 		int n = myCount;
-		while (n >= 0){
-			result.append(myTop.getElement());
+		while (n > 1){
+			result.append(runner.getElement());
 			result.append(", ");
 			n--;
-			myTop = myTop.getNext();
+			runner = runner.getNext();
 		}
+
+		result.append(runner.getElement());
 		return result.toString();
 
 	}

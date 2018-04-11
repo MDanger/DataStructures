@@ -94,7 +94,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T> {
         list[0] = element;
     }
 
-    public void addTorear(T element){
+    public void addToTail(T element){
         if (size() == list.length) expandCapacity();
         list[modCount] = element;
         modCount++;
