@@ -1,13 +1,6 @@
 package test;
 
-import list.ArrayList;
-import list.LinkedList;
 import list.OandULinkedList;
-import list.OrderedArrayList;
-import queue.CircularArrayQueue;
-import queue.LinkedQueue;
-import stack.ArrayStack;
-import stack.LinkedStack;
 
 import java.util.Iterator;
 
@@ -80,7 +73,7 @@ public class Control {
 //        System.out.println("intCAQ toString: " +intCAQ.toString());
 //        System.out.println("intCAQ isEmpty: " + intCAQ.isEmpty());
 
-//        OrderedArrayList intOAL = new OrderedArrayList();
+//        OandUArrayList intOAL = new OandUArrayList();
 //        System.out.println("intOAL isEmpty: " + intOAL.isEmpty());
 //        System.out.println("intOAL size: " +intOAL.size());
 //        for (int i = 1; i <=20; i++){

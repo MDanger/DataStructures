@@ -2,9 +2,9 @@ package list;
 
 import java.util.Iterator;
 
-public class OrderedArrayList extends ArrayList implements  OrderedListADT  {
+public class OandUArrayList extends ArrayList implements  OrderedListADT  {
 
-public OrderedArrayList(){
+public OandUArrayList(){
     super();
 }
 
