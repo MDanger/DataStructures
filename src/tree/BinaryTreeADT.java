@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.Iterator;
+
 /**
  * BinaryTreeADT defines the interface to the binary tree data structure.
  *
@@ -14,6 +16,11 @@ public interface BinaryTreeADT<T> {
      * @return a reference to the root
      */
     public T getRootElement();
+
+    /**
+     * Returns reference to root node of tree
+     */
+
     /**
      * Returns true if this binary tree is empty and false otherwise
      *
@@ -38,13 +45,13 @@ public interface BinaryTreeADT<T> {
     /**
      * Returns a reference to targetElement. Throws an exception if the element not found.
      * @param targetElement
-     * @return
+     * @return reference to targetElement
      */
     public T find(T targetElement);
 
     /**
      * Returns a csv string of elements in this tree.
-     * @return
+     * @return String representation of elements
      */
     public String toString();
 
@@ -55,13 +62,13 @@ public interface BinaryTreeADT<T> {
     public Iterator<T> iterator();
 
     /**
-     * Returns an inorder traversal on tree
-     * @return return iterator over elements of this tree
+     * Returns an inorder traversal iterator on tree
+     * @return iterator over elements of this tree
      */
     public Iterator<T> iteratorInOrder();
 
     /**
-     * Returns a preorder traversal on tree
+     * Returns a preorder traversal iterator on tree
      * @return iterator over elements of this tree
      */
     public Iterator<T> iteratorPreOrder();

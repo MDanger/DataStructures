@@ -6,6 +6,10 @@ public class BinaryTreeNode<T> {
     protected T element;
     protected BinaryTreeNode<T> left, right;
 
+    /**
+     * Default constructor. Create BinaryTreeNode with the given element
+     * @param obj the element to be added to node
+     */
     public BinaryTreeNode(T obj){
         element = obj;
         left = null;
@@ -43,6 +47,8 @@ public class BinaryTreeNode<T> {
     public T getElement(){
         return element;
     }
+
+    public void setElement(T obj){ element = obj; }
 
     public BinaryTreeNode<T> getRight(){
         return right;

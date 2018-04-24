@@ -1,11 +1,36 @@
 package test;
 
 import list.OandULinkedList;
+import node.BinaryTreeNode;
+import tree.LinkedBinaryTree;
 
 import java.util.Iterator;
 
 public class Control {
     public static void main(String[] args) {
+        int element = 0;
+        BinaryTreeNode firstNode = new BinaryTreeNode(element);
+        BinaryTreeNode secondNode = new BinaryTreeNode(element+1);
+
+//        System.out.println("firstNode.numChildren():" + firstNode.numChildren());
+//        System.out.println("firstNode.getElement(): " + firstNode.getElement());
+//        firstNode.setRight(secondNode);
+//        System.out.println("firstNode.numChildren():" + firstNode.numChildren());
+//        firstNode.setLeft(secondNode);
+//        System.out.println("firstNode.getLeft().getElement(): " +firstNode.getLeft().getElement());
+//        firstNode.setElement(999);
+//        System.out.println("firstNode.getElement(): " + firstNode.getElement());
+//        secondNode.setElement(8);
+//        firstNode.setRight(secondNode);
+//        System.out.println("firstNode.getRight().getElement(): " +firstNode.getRight().getElement());
+
+        LinkedBinaryTree nuTree = new LinkedBinaryTree();
+        System.out.println(nuTree.isEmpty());
+
+        nuTree = new LinkedBinaryTree(firstNode);
+        System.out.println(nuTree.isEmpty());
+//        nuTree.getRootNode();
+
 //        ArrayStack intAStack = new ArrayStack();
 //        System.out.println("isEmpty: " + intAStack.isEmpty());
 //        System.out.println("size: " + intAStack.size());
@@ -109,16 +134,16 @@ public class Control {
 //        while (itr.hasNext()){
 //            System.out.print(itr.next());
 //        }
-        OandULinkedList OLL = new OandULinkedList();
-        System.out.println("OLL isEmpty: " + OLL.isEmpty());
-        System.out.println("OLL size: " +OLL.size());
-        for (int i = 1; i <=20; i++){
-            OLL.add(i);
-        }
-        Iterator itr = OLL.Iterator();
-        while (itr.hasNext()){
-            System.out.print(itr.next());
-        }
+//        OandULinkedList OLL = new OandULinkedList();
+//        System.out.println("OLL isEmpty: " + OLL.isEmpty());
+//        System.out.println("OLL size: " +OLL.size());
+//        for (int i = 1; i <=20; i++){
+//            OLL.add(i);
+//        }
+//        Iterator itr = OLL.Iterator();
+//        while (itr.hasNext()){
+//            System.out.print(itr.next());
+//        }
 //        System.out.println("OLL toString: " +OLL.toString());
 //        System.out.println("OLL isEmpty: " + OLL.isEmpty());
 //        System.out.println("OLL size: " +OLL.size());
