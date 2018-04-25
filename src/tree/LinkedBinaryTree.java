@@ -1,10 +1,14 @@
 package tree;
 
 import java.util.*;
+
+import list.OandUArrayList;
 import node.BinaryTreeNode;
+import queue.LinkedQueue;
 
 public class LinkedBinaryTree<T> implements BinaryTreeADT<T>, Iterable<T> {
     protected BinaryTreeNode<T> root;
+    protected int size;
     protected int modCount;
 
     public LinkedBinaryTree(){
@@ -13,24 +17,32 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>, Iterable<T> {
 
     public LinkedBinaryTree(T element){
         root = new BinaryTreeNode<T>(element);
+        size = 1;
+        modCount = 1;
     }
 
     public LinkedBinaryTree(T element, LinkedBinaryTree<T> left, LinkedBinaryTree<T> right){
         root = new BinaryTreeNode<T>(element);
         root.setLeft(left.root);
         root.setRight(right.root);
+        size += left.size() + right.size();
+        modCount += 1;
     }
 
     /**
-     * Returns a reference to the root element
+     * Returns a reference to the element in the root node
      *
-     * @return a reference to the root
+     * @return a reference to the root element
      */
     @Override
     public T getRootElement() {
         return root.getElement();
     }
 
+    /**
+     * Return reference to root node
+     * @return a reference to rood node
+     */
     public BinaryTreeNode<T> getRootNode(){
         return root;
     }
@@ -56,11 +68,7 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>, Iterable<T> {
      */
     @Override
     public int size() {
-        int result = 0;
-        if (root.getLeft() != null){ result = 1 + getRootNode().numChildren();}
-        if (root.getRight() != null) { result = 1 + getRootNode().numChildren()}
-        
-        return result;
+        return size;
     }
 
     /**
@@ -82,6 +90,7 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>, Iterable<T> {
      */
     @Override
     public T find(T targetElement) {
+
         return null;
     }
 
@@ -102,7 +111,18 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>, Iterable<T> {
      */
     @Override
     public Iterator<T> iteratorInOrder() {
-        return null;
+        OandUArrayList elementList = new OandUArrayList();
+        inOrder(root, elementList);
+        return  elementList.Iterator();
+
+    }
+
+    protected void inOrder(BinaryTreeNode<T> node, OandUArrayList elList){
+        if (node != null){
+            inOrder(node.getLeft(), elList);
+            elList.addToTail(node.getElement());
+            inOrder(node.getRight(), elList);
+        }
     }
 
     /**
